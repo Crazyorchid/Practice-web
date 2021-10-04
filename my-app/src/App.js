@@ -1,17 +1,25 @@
 /*app root*/
 import React, {Component} from 'react'
-import {Button, message} from 'antd'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import './App.less';
+import Admin from './pages/admin/admin'
+import Login from './pages/login/login'
 
 
 
 export default class App extends Component {
-  handleClick=()=>{
-    message.success('Hello')
-  }
+
 
 
   render() {
-    return <Button type="primary" onClick={this.handleClick}>Primary</Button>
+    return (
+      <BrowserRouter>
+      <Switch>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/" component={Admin}></Route>
+      </Switch>
+      </BrowserRouter>
+      )
   }
 
 }
