@@ -33,10 +33,11 @@ export default class Login extends Component {
           >
             <Form.Item name="username"
             rules={[
-          {
-            required: true,
-            message: 'Please input your Username!',
-          },
+          
+            {required: true, whitespace: true, message: 'Please input your Username!'},
+            {min: 3, message: 'Cannot be shorter than 3 characters'},
+            {max: 12, message: 'Cannot be longer than 12 characters'},
+            {pattern: /^[a-zA-Z0-9_]+$/, message:'Invalid Syntax(Character,number,_ only)!'},
         ]}>
               <Input
                 prefix={<UserOutlined className="site-form-item-icon" />}
@@ -45,10 +46,10 @@ export default class Login extends Component {
             </Form.Item>
             <Form.Item name="password"
             rules={[
-                {
-                  required: true,
-                  message: 'Please input your Password!',
-                },
+              {required: true, whitespace: true, message: 'Please input your Username!'},
+              {min: 4, message: 'Cannot be shorter than 5 characters'},
+              {max: 12, message: 'Cannot be longer than 12 characters'},
+              {pattern: /^[a-zA-Z0-9_]+$/, message:'Invalid Syntax(Character,number,_ only)!'},
               ]}>
               <Input
                 prefix={<LockOutlined className="site-form-item-icon" />}
